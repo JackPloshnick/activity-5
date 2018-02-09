@@ -3,7 +3,6 @@
 ## 2/8/18
 
 
-
 make_values <- function(name){
   UseMethod("student", name)
 }
@@ -97,10 +96,23 @@ curfew.GRYFFINDOR <- function(x){
 Gryffindor_Tower$student <- x
   }
 
+curfew.SLYTHERIN <- function(x){
+  Black_Lake$student <- x
+}
+
+curfew.RAVENCLAW <- function(x){
+  Ravenclaw_Tower$student <- x
+}
+
+curfew.HUFFLEPUFF <- function(x){
+  Basement$student <- x
+}
 
 
-ls.str(Gryffindor_Tower)
-curfew.GRYFFINDOR(smith)
+curfew(smith)
+
+ls.str(Basement)
+
 
 
 
