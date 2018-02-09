@@ -27,9 +27,8 @@ class(jacob)
 
 ##### Part 2
 
-sorting_matrix <- matrix(c(4,3,2,1,3,4,2,1,1,2,4,3,2,1,3,4),
-                 nrow=4)
-print(sorting_matrix)
+sorting_matrix <- diag(4)
+
 
 ?sort
 
@@ -82,6 +81,27 @@ sort.student_part3 <-function(x){
 smith <- sort.student_part3()
 
 class(smith)
+
+###### part 4
+ "Gryffindor_Tower" <- new.env()
+"Black_Lake" <- new.env()
+"Ravenclaw_Tower" <- new.env()
+"Basement" <- new.env()
+
+
+curfew <- function(x){
+  UseMethod("curfew",x)
+}
+
+curfew.GRYFFINDOR <- function(x){
+Gryffindor_Tower$student <- x
+  }
+
+
+
+ls.str(Gryffindor_Tower)
+curfew.GRYFFINDOR(smith)
+
 
 
 
