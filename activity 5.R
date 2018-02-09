@@ -3,13 +3,6 @@
 ## 2/8/18
 
 
-Hogwarts_Names <-  c("name")
-
-Hogwarts_Names <- as.list(Hogwarts_Names)
-
-class(Hogwarts_Names) <- "student"
-
-class(Hogwarts_Names)
 
 make_values <- function(name){
   UseMethod("student", name)
@@ -17,32 +10,47 @@ make_values <- function(name){
 
 
 make_values.student <- function(name){
-  name$courage = sample(1:100,1)
-  name$ambition = sample(1:100,1)
-  name$intellegence = sample(1:100,1)
-  name$effort = sample(1:100,1)
-  return(name)
+  courage = sample(1:100,1)
+  ambition = sample(1:100,1)
+  intellegence = sample(1:100,1)
+  effort = sample(1:100,1)
+  a = c(courage, ambition, intellegence, effort)
+  class(a) = "student"
+  return(a)
 }
 
+jacob <- make_values.student()
 
-make_values.student(Hogwarts_Names)
+print(jacob)
 
+class(jacob)
 
 ##### Part 2
 
-thingy <- matrix(c(1:16),
+sorting_matrix <- matrix(c(4,3,2,1,3,4,2,1,1,2,4,3,2,1,3,4),
                  nrow=4)
-matrix
+print(sorting_matrix)
 
 ?sort
 
-sort.student <- function(x,decreasing = FALSE, na.last = NA, matrix){
-  a = c(x$courage, x$ambition, x$intellegence, x$effort) 
-  something = t(matrix) %*% a
-  return(something)
+sort.student <-function(x){
+  x <- make_values.student() 
+   sorted = t(sorting_matrix) %*% x
+  if(max(sorted) == sorted[1]){
+    print("GRYFFINDOR")
+  }
+  if(max(sorted) == sorted[2]){
+    print("SLYTHERIN")
+  }
+  if(max(sorted) == sorted[3]){
+    print("RAVENCLAW")
+  }
+  if(max(sorted) == sorted[4]){
+    print("HUFFLEPUFF")
+  }
 }
 
-sort.student(Hogwarts_Names,decreasing = FALSE, na.last = NA, thingy)
+sort.student("jacob")
 
 
 
