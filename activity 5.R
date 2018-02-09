@@ -53,12 +53,35 @@ sort.student <-function(x){
 sort.student("jacob")
 
 
+### Part 3
+
+
+sort.student_part3 <-function(x){
+  x <- make_values.student() 
+  sorted = t(sorting_matrix) %*% x
+  if(max(sorted) == sorted[1]){
+    class(x) = c("student", "GRYFFINDOR")
+    return(x)
+  }
+  if(max(sorted) == sorted[2]){
+    class(x) = c("student", "SLYTHERIN")
+    return(x)
+  }
+  if(max(sorted) == sorted[3]){
+    class(x) = c("student", "RAVENCLAW")
+    return(x)
+  }
+  if(max(sorted) == sorted[4]){
+    class(x) = c("student", "HUFFLEPUFF")
+    return(x)
+  }
+}
 
 
 
+smith <- sort.student_part3()
 
-
-
+class(smith)
 
 
 
